@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import time
 import re
 import datetime
+import os
 
 # 直接获取实时金价
 gold_price = None
