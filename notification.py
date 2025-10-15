@@ -20,13 +20,13 @@ def check_price_notification(buy_price, sell_price):
 
 def send_notification(message):
     """
-    发送通知消息（调用 sendNotice 模块的 bark 方法推送消息）。
+    发送通知消息（调用 sendNotice 模块的 send 方法推送消息）。
     
     :param message: 通知消息
     """
     if message:
-        from sendNotice import bark
-        bark("金价提醒", message)
+        from sendNotice import send
+        send("金价提醒", message)
 
 
 if __name__ == "__main__":
