@@ -16,7 +16,15 @@ chrome_options = Options()
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+try:
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+except Exception as e:
+    # 如果自动安装失败，尝试手动指定 chromedriver 路径
+    chromedriver_path = "/usr/bin/chromedriver"  # 容器中的默认路径
+    if os.path.exists(chromedriver_path):
+        driver = webdriver.Chrome(service=Service(chromedriver_path), options=chrome_options)
+    else:
+        raise Exception(f"无法找到 chromedriver: {e}")
 
 # 目标页面
 url = 'https://m.jr.jd.com/finance-gold/msjgold/homepage?from=fhc&ip=66.249.71.78&orderSource=6&ptag=16337378.0.1'
