@@ -35,7 +35,7 @@ def print(text, *args, **kw):
 push_config = {
     'HITOKOTO': True,                  # 启用一言（随机句子）
 
-    'BARK_PUSH': 'vTX9t7xY9cZKZMKAqWTfqg',                    # bark IP 或设备码，例：https://api.day.app/DxHcxxxxxRxxxxxxcm/
+    'BARK_PUSH': '',                    # bark IP 或设备码，例：https://api.day.app/DxHcxxxxxRxxxxxxcm/
     'BARK_ARCHIVE': '',                 # bark 推送是否存档
     'BARK_GROUP': 'GOLD',                   # bark 推送分组
     'BARK_SOUND': '',                   # bark 推送声音
