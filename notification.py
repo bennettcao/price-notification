@@ -32,8 +32,8 @@ def send_notification(message):
 if __name__ == "__main__":
     # 示例用法
 
-    buy_price = os.getenv("gold_buy_price") or 900
-    sell_price = os.getenv("gold_sell_price") or 950
+    buy_price = float(os.getenv("gold_buy_price")) if os.getenv("gold_buy_price") else 900
+    sell_price = float(os.getenv("gold_sell_price")) if os.getenv("gold_sell_price") else 950
     
     notification = check_price_notification(buy_price, sell_price)
     print(notification)
